@@ -16,6 +16,7 @@ private const val NUMBER_OF_AVAILABILITY_ZONES = 2
  * Pros -  AWS constructs offer convenient defaults and reduce the need to know all the details about the AWS resources they represent,
  *         while providing convenience methods that make it simpler to work with the resource
  *
+ * demo cdk synth LunchAndLearnEcsCluster to see how much YAML this generates!
  */
 class EcsClusterStack(parent: Construct, id: String, props: StackProps? = null): Stack(parent, id, props) {
     val vpc = Vpc.Builder.create(this, "TwitterInfoVpc")

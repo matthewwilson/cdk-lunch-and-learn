@@ -18,7 +18,7 @@ class TwitterInfoApi(parent: Construct, id: String): Construct(parent, id) {
     init {
         val twitterInfoLambda = Function.Builder.create(this, "TwitterInfoLambda")
                 .runtime(NODEJS_10_X)
-                .code(fromAsset("lambda"))
+                .code(fromAsset("lambda")) //from asset method is a nice way to upload the lambda code. Requires cdk bootstrap
                 .handler("twitterInfoLambda.main")
                 .timeout(seconds(10))
                 .build()
