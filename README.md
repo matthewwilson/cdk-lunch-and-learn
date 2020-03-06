@@ -1,3 +1,5 @@
+# Save the artistry for your app, not your infrastructure
+
 ## Useful commands
 
  * `./gradlew clean build`      compile and run tests
