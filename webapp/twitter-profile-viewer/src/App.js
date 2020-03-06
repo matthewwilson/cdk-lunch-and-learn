@@ -20,8 +20,8 @@ class App extends React.Component {
     if (!this.state.username.length) {
       return;
     }
-    const url = (window.LAMBDA_URL || 'https://kj1ox23jfl.execute-api.eu-west-1.amazonaws.com');
-    const response = await axios.get(`${url}/prod?username=${this.state.username}`)
+    const url = (window.LAMBDA_URL || 'https://kj1ox23jfl.execute-api.eu-west-1.amazonaws.com/prod/');
+    const response = await axios.get(`${url}?username=${this.state.username}`)
     this.setState(state => ({
       twitterInfo: response.data,
       username: ''

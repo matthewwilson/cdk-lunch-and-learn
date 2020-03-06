@@ -8,7 +8,13 @@ import software.amazon.awscdk.services.lambda.Code.fromAsset
 import software.amazon.awscdk.services.lambda.Function
 import software.amazon.awscdk.services.lambda.Runtime.NODEJS_10_X
 
-class TwitterInfoLambdaService(parent: Construct, id: String): Construct(parent, id) {
+/**
+ * A construct can represent a single resource, such as an S3 bucket,
+ * But in this example it can represent a higher-level component consisting of multiple AWS CDK resources.
+ */
+class TwitterInfoApi(parent: Construct, id: String): Construct(parent, id) {
+    val url: String
+
     init {
         val twitterInfoLambda = Function.Builder.create(this, "TwitterInfoLambda")
                 .runtime(NODEJS_10_X)
@@ -25,5 +31,7 @@ class TwitterInfoLambdaService(parent: Construct, id: String): Construct(parent,
         val getTwitterInfoIntegration = LambdaIntegration.Builder.create(twitterInfoLambda).build()
 
         api.root.addMethod("GET", getTwitterInfoIntegration)
+
+        url = api.url
     }
 }
