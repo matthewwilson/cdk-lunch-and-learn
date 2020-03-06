@@ -24,7 +24,7 @@ class TwitterInfoApi(parent: Construct, id: String): Construct(parent, id) {
                 .build()
 
         val api = RestApi.Builder.create(this, "Twitter-Info-API")
-                .restApiName("Twitter Handle Service")
+                .restApiName("Twitter Info API")
                 .description("This service returns twitter info for a given username")
                 .build()
 
